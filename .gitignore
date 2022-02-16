@@ -4,7 +4,7 @@ CMakeBuilds/
 .vscode/
 
 # Log files
-data/logs/
+# data/logs/
 
 # Executables
 *.exe
