@@ -118,7 +118,7 @@ set(SOURCE_FILES
   src/s2e_for_c2a_core.cpp
   src/Simulation/Case/c2a_core_sample_case.cpp
   src/Simulation/Spacecraft/c2a_core_sample_sat.cpp
-  src/Simulation/Spacecraft/c2a_core_sample_Components.cpp
+  src/Simulation/Spacecraft/c2a_core_sample_components.cpp
 )
 # Create executable file
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
