@@ -32,9 +32,7 @@ jobs:
         with:
           path: s2e-core
           repository: ut-issl/s2e-core
-          # FIXME: 定数化
-          # ref: '${{ needs.set_global_constants.outputs.S2E_CORE_VERSION }}'
-          ref: bef17af9b13dbb9095183ba7de7af9d02d8cfe07
+          ref: '${{ needs.set_global_constants.outputs.S2E_CORE_VERSION }}'
           fetch-depth: 1
 
       - name: checkout S2E user
@@ -120,9 +118,7 @@ jobs:
         with:
           path: s2e-core
           repository: ut-issl/s2e-core
-          # FIXME: 定数化
-          # ref: '${{ needs.set_global_constants.outputs.S2E_CORE_VERSION }}'
-          ref: bef17af9b13dbb9095183ba7de7af9d02d8cfe07
+          ref: '${{ needs.set_global_constants.outputs.S2E_CORE_VERSION }}'
           fetch-depth: 1
 
       - name: checkout S2E user
