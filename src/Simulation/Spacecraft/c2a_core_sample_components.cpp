@@ -1,7 +1,9 @@
 #include "c2a_core_sample_components.h"
 #include "Initialize.h"
 
+#ifdef USE_C2A
 #include "src_user/Settings/port_config.h"
+#endif
 
 C2aCoreSampleComponents::C2aCoreSampleComponents(
   const Dynamics* dynamics,
