@@ -61,7 +61,6 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: amd64_x86
-          toolset: 14.28
 
       - name: cache extlib
         id: cache-extlib
