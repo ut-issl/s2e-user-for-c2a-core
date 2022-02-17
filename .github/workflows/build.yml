@@ -170,5 +170,5 @@ jobs:
       - name: build
         working-directory: ./s2e-user
         run: |
-          cmake . -DEXT_LIB_DIR=./s2e-core/ExtLibraries -DUSE_C2A=OFF
+          cmake . -DEXT_LIB_DIR=../s2e-core/ExtLibraries -DUSE_C2A=OFF
           cmake --build .
