@@ -1,0 +1,140 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    paths:
+      - '.github/workflows/build.yml'
+      - 'ExtLibraries/**'
+      - 'CMakeLists.txt'
+      - 'common.cmake'
+      - 'CMakeSettings.json'
+      - 'src/**'
+
+jobs:
+  build_s2e_win:
+    name: Build on Windows
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        use_c2a: ['USE_C2A=OFF', 'USE_C2A=ON']
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: checkout C2A core
+        if: contains(matrix.use_c2a, 'ON')
+        uses: actions/checkout@v2
+        with:
+          path: c2a-core
+          repository: ut-issl/c2a-core
+          ref: v3.4.0
+          fetch-depth: 1
+
+      - name: setup C2A
+        if: contains(matrix.use_c2a, 'ON')
+        shell: cmd
+        working-directory: c2a-core
+        run: setup.bat
+
+      - name: Configure build for x86
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: amd64_x86
+
+      - name: cache extlib
+        id: cache-extlib
+        uses: actions/cache@v2
+        with:
+          key: extlib-${{ runner.os }}-${{ hashFiles('./ExtLibraries/**') }}
+          restore-keys: |
+            extlib-${{ runner.os }}-
+          path: ./ExtLibraries
+
+      - name: build extlib
+        if: steps.cache-extlib.outputs.cache-hit != 'true'
+        shell: powershell
+        working-directory: ./ExtLibraries
+        run: |
+          $extlib_dir=(pwd).Path
+          cmake -G "Visual Studio 16 2019" -A Win32 -DCMAKE_CONFIGURATION_TYPES:STRING="Debug" -DEXT_LIB_DIR="${extlib_dir}"
+          cmake --build .
+      - name: install extlib
+        if: steps.cache-extlib.outputs.cache-hit != 'true'
+        shell: powershell
+        working-directory: ./ExtLibraries
+        run: |
+          cmake --install .
+      - name: check extlib
+        shell: powershell
+        working-directory: ./ExtLibraries
+        run: |
+          ls cspice
+          ls cspice/cspice_msvs
+          ls cspice/include
+          ls cspice/generic_kernels
+          ls nrlmsise00
+          ls nrlmsise00/table
+          ls nrlmsise00/lib
+          ls nrlmsise00/lib/libnrlmsise00.lib
+          ls nrlmsise00/src
+
+      - name: build
+        shell: cmd
+        run: |
+          cl.exe
+          cmake -G "Visual Studio 16 2019" -A Win32 -DCMAKE_CONFIGURATION_TYPES:STRING="Debug" -DEXT_LIB_DIR=./ExtLibraries -DFLIGHT_SW_DIR=./c2a-core -DC2A_NAME=Examples/minimum_user_for_s2e -D${{ matrix.use_c2a }}
+          cmake --build .
+
+  build_s2e_linux:
+    name: Build on Linux
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: install deps
+        run: |
+          sudo apt-get install -y gcc-multilib g++-multilib
+
+      - name: cache extlib
+        id: cache-extlib
+        uses: actions/cache@v2
+        with:
+          key: extlib-${{ runner.os }}-${{ hashFiles('./ExtLibraries/**') }}
+          restore-keys: |
+            extlib-${{ runner.os }}-
+          path: ExtLibraries
+
+      - name: build extlib
+        if: steps.cache-extlib.outputs.cache-hit != 'true'
+        working-directory: ./ExtLibraries
+        run: |
+          cmake . -DEXT_LIB_DIR=$(pwd)
+          cmake --build .
+      - name: install extlib
+        if: steps.cache-extlib.outputs.cache-hit != 'true'
+        working-directory: ./ExtLibraries
+        run: |
+          cmake --install .
+      - name: check extlib
+        working-directory: ./ExtLibraries
+        run: |
+          ls cspice
+          ls cspice/cspice_unix
+          ls cspice/include
+          ls cspice/generic_kernels
+          ls nrlmsise00
+          ls nrlmsise00/table
+          ls nrlmsise00/lib
+          ls nrlmsise00/lib/libnrlmsise00.a
+          ls nrlmsise00/src
+
+      - name: build
+        run: |
+          cmake . -DEXT_LIB_DIR=./ExtLibraries
+          cmake --build .
