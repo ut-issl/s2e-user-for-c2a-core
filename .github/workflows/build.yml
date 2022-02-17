@@ -8,7 +8,7 @@ on:
   pull_request:
 
 jobs:
-  set_globalconstants:
+  set_global_constants:
     runs-on: ubuntu-latest
     outputs:
       S2E_CORE_VERSION: bef17af9b13dbb9095183ba7de7af9d02d8cfe07
@@ -17,6 +17,7 @@ jobs:
 
   build_s2e_win:
     name: Build on Windows
+    needs: [set_global_constants]
     runs-on: windows-latest
     strategy:
       fail-fast: false
@@ -30,6 +31,7 @@ jobs:
           path: s2e-core
           repository: ut-issl/s2e-core
           # FIXME: 定数化
+          # ref: '${{ needs.set_global_constants.outputs.S2E_CORE_VERSION }}'
           ref: bef17af9b13dbb9095183ba7de7af9d02d8cfe07
           fetch-depth: 1
 
@@ -105,51 +107,68 @@ jobs:
           cmake -G "Visual Studio 16 2019" -A Win32 -DCMAKE_CONFIGURATION_TYPES:STRING="Debug" -DEXT_LIB_DIR=../s2e-core/ExtLibraries -DFLIGHT_SW_DIR=../c2a-core -DC2A_NAME=Examples/minimum_user_for_s2e -D${{ matrix.use_c2a }}
           cmake --build .
 
-#  build_s2e_linux:
-#    name: Build on Linux
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - uses: actions/checkout@v2
-#
-#      - name: install deps
-#        run: |
-#          sudo apt-get install -y gcc-multilib g++-multilib
-#
-#      - name: cache extlib
-#        id: cache-extlib
-#        uses: actions/cache@v2
-#        with:
-#          key: extlib-${{ runner.os }}-${{ hashFiles('./ExtLibraries/**') }}
-#          restore-keys: |
-#            extlib-${{ runner.os }}-
-#          path: ExtLibraries
-#
-#      - name: build extlib
-#        if: steps.cache-extlib.outputs.cache-hit != 'true'
-#        working-directory: ./ExtLibraries
-#        run: |
-#          cmake . -DEXT_LIB_DIR=$(pwd)
-#          cmake --build .
-#      - name: install extlib
-#        if: steps.cache-extlib.outputs.cache-hit != 'true'
-#        working-directory: ./ExtLibraries
-#        run: |
-#          cmake --install .
-#      - name: check extlib
-#        working-directory: ./ExtLibraries
-#        run: |
-#          ls cspice
-#          ls cspice/cspice_unix
-#          ls cspice/include
-#          ls cspice/generic_kernels
-#          ls nrlmsise00
-#          ls nrlmsise00/table
-#          ls nrlmsise00/lib
-#          ls nrlmsise00/lib/libnrlmsise00.a
-#          ls nrlmsise00/src
-#
-#      - name: build
-#        run: |
-#          cmake . -DEXT_LIB_DIR=./ExtLibraries
-#          cmake --build .
+  build_s2e_linux:
+    name: Build on Linux
+    needs: [set_global_constants]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout S2E core
+        uses: actions/checkout@v2
+        with:
+          path: s2e-core
+          repository: ut-issl/s2e-core
+          # FIXME: 定数化
+          # ref: '${{ needs.set_global_constants.outputs.S2E_CORE_VERSION }}'
+          ref: bef17af9b13dbb9095183ba7de7af9d02d8cfe07
+          fetch-depth: 1
+
+      - name: checkout S2E user
+        uses: actions/checkout@v2
+        with:
+          path: s2e-user
+
+      - name: install deps
+        run: |
+          sudo apt-get install -y gcc-multilib g++-multilib
+
+      - name: cache extlib
+        id: cache-extlib
+        uses: actions/cache@v2
+        with:
+          key: extlib-${{ runner.os }}-${{ hashFiles('./s2e-core/ExtLibraries/**') }}
+          restore-keys: |
+            extlib-${{ runner.os }}-
+          path: s2e-core/ExtLibraries
+
+      - name: build extlib
+        if: steps.cache-extlib.outputs.cache-hit != 'true'
+        working-directory: ./s2e-core/ExtLibraries
+        run: |
+          cmake . -DEXT_LIB_DIR=$(pwd)
+          cmake --build .
+
+      - name: install extlib
+        if: steps.cache-extlib.outputs.cache-hit != 'true'
+        working-directory: ./s2e-core/ExtLibraries
+        run: |
+          cmake --install .
+
+      - name: check extlib
+        working-directory: ./s2e-core/ExtLibraries
+        run: |
+          ls cspice
+          ls cspice/cspice_unix
+          ls cspice/include
+          ls cspice/generic_kernels
+          ls nrlmsise00
+          ls nrlmsise00/table
+          ls nrlmsise00/lib
+          ls nrlmsise00/lib/libnrlmsise00.a
+          ls nrlmsise00/src
+
+      - name: build
+        working-directory: ./s2e-user
+        run: |
+          cmake . -DEXT_LIB_DIR=./s2e-core/ExtLibraries
+          cmake --build .
