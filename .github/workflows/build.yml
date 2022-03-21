@@ -57,7 +57,7 @@ jobs:
 
       - name: cache extlib
         id: cache-extlib
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           key: extlib-${{ runner.os }}-${{ hashFiles('./s2e-core/ExtLibraries/**') }}
           restore-keys: |
@@ -127,7 +127,7 @@ jobs:
 
       - name: cache extlib
         id: cache-extlib
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           key: extlib-${{ runner.os }}-${{ hashFiles('./s2e-core/ExtLibraries/**') }}
           restore-keys: |
