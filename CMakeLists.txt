@@ -31,11 +31,6 @@ if(NOT DEFINED C2A_NAME)
   set(C2A_NAME "c2a_sample")
 endif()
 
-if(WIN32)
-elseif(APPLE)
-  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./out)  #set build path
-endif()
-
 ## options to use C2A
 if(USE_C2A)
   set(C2A_DIR ${FLIGHT_SW_DIR}/${C2A_NAME})
