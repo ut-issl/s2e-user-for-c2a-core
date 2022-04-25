@@ -1,5 +1,4 @@
 #include "c2a_core_sample_case.h"
-#include "Initialize.h"
 
 C2aCoreSampleCase::C2aCoreSampleCase(std::string ini_fname)
 : SimulationCase(ini_fname)
