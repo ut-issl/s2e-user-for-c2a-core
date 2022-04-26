@@ -7,12 +7,12 @@
 #endif
 
 C2aCoreSampleComponents::C2aCoreSampleComponents(
-  const Dynamics* dynamics,
-  const Structure* structure,
-  const LocalEnvironment* local_env,
-  const GlobalEnvironment* glo_env,
-  const SimulationConfig* config
-):dynamics_(dynamics), structure_(structure), local_env_(local_env), glo_env_(glo_env), config_(config)
+    const Dynamics *dynamics,
+    const Structure *structure,
+    const LocalEnvironment *local_env,
+    const GlobalEnvironment *glo_env,
+    const SimulationConfig *config,
+    ClockGenerator *clock_gen) : dynamics_(dynamics), structure_(structure), local_env_(local_env), glo_env_(glo_env), config_(config)
 {
 #ifdef USE_C2A
   obc_ = new OBC_C2A(clock_gen, 100);
@@ -32,16 +32,16 @@ Vector<3> C2aCoreSampleComponents::GenerateForce_N_b()
   // There is no orbit control component, so it remains 0
   Vector<3> force_N_b_(0.0);
   return force_N_b_;
-};
+}
 
 Vector<3> C2aCoreSampleComponents::GenerateTorque_Nm_b()
 {
   // No attitude control component
   Vector<3> torque_Nm_b_(0.0);
   return torque_Nm_b_;
-};
+}
 
-void C2aCoreSampleComponents::LogSetup(Logger & logger)
+void C2aCoreSampleComponents::LogSetup(Logger &logger)
 {
   UNUSED(logger);
 }
