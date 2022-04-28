@@ -8,7 +8,7 @@ on:
   pull_request:
 
 env:
-  S2E_CORE_VERSION: 3b4afe97e20070c9a1a42f689d9e53b635a87c3e # TODO change after v5.0.0 release
+  S2E_CORE_VERSION: 49501fd54bf5392e06df03555ab2024e5e13e112 # TODO change after v5.0.0 release
 
 jobs:
   build_s2e_win:
