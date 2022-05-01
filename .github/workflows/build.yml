@@ -97,7 +97,6 @@ jobs:
           ls nrlmsise00/lib
           ls nrlmsise00/lib/libnrlmsise00.lib
           ls nrlmsise00/src
-          ls CMakeBuilds
 
       - name: build
         working-directory: ./s2e-user
