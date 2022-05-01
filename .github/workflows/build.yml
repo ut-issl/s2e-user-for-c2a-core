@@ -74,7 +74,7 @@ jobs:
         working-directory: ./s2e-core/ExtLibraries
         run: |
           $extlib_dir=(pwd).Path
-          rm libnrlmsise00.vcxproj
+          rm nrlmsise00/libnrlmsise00.vcxproj
           cmake -G "Visual Studio 17 2022" -A Win32 -B CMakeBuilds -DCMAKE_CONFIGURATION_TYPES:STRING="Debug" -DEXT_LIB_DIR="${extlib_dir}"
           cmake --build . --clean-first
 
