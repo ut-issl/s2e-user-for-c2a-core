@@ -8,8 +8,8 @@ on:
   pull_request:
 
 env:
-  S2E_CORE_VERSION: 2ee62e3e4962323aed72459425ed0662592e5e12 # TODO change after v5.0.0 release
-  C2A_CORE_VERSION: 6657e58556f5a6dc51e3e5f698018491fc11cff4 # TODO change after merge
+  S2E_CORE_VERSION: v5.0.0
+  C2A_CORE_VERSION: 8e25f45b1ca1c6489f32ed298bbc0a4817f0422f # TODO change after merge
 
 jobs:
   build_s2e_win:
