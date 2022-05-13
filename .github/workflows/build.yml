@@ -14,7 +14,6 @@ env:
 jobs:
   build_s2e_win:
     name: Build on Windows VS2022
-    # VS2022
     runs-on: windows-2022
     strategy:
       fail-fast: false
@@ -64,7 +63,7 @@ jobs:
         id: cache-extlib
         uses: actions/cache@v3
         with:
-          key: extlib-${{ runner.os }}-${{ hashFiles('./s2e-core/**') }}
+          key: extlib-${{ runner.os }}-${{ hashFiles('./s2e-core/ExtLibraries/**') }}
           path: ./s2e-core/ExtLibraries
 
       - name: build extlib
@@ -88,7 +87,7 @@ jobs:
         working-directory: ./s2e-core/ExtLibraries
         run: |
           ls cspice
-          ls cspice/cspice_msvs
+          ls cspice/cspice_msvs/lib
           ls cspice/include
           ls cspice/generic_kernels
           ls nrlmsise00
@@ -132,7 +131,7 @@ jobs:
         id: cache-extlib
         uses: actions/cache@v3
         with:
-          key: extlib-${{ runner.os }}-${{ hashFiles('./s2e-core/**') }}
+          key: extlib-${{ runner.os }}-${{ hashFiles('./s2e-core/ExtLibraries/**') }}
           path: s2e-core/ExtLibraries
 
       - name: build extlib
