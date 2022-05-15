@@ -9,7 +9,7 @@ on:
 
 env:
   S2E_CORE_VERSION: v5.0.0
-  C2A_CORE_VERSION: 8e25f45b1ca1c6489f32ed298bbc0a4817f0422f # TODO change after merge
+  C2A_CORE_VERSION: develop
 
 jobs:
   build_s2e_win:
