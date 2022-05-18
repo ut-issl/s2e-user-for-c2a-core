@@ -181,5 +181,5 @@ jobs:
       - name: build
         working-directory: ./s2e-user
         run: |
-          cmake . -DEXT_LIB_DIR=../s2e-core/ExtLibraries -DFLIGHT_SW_DIR=../c2a-core -DC2A_NAME=Examples/minimum_user_for_s2e -D${{ matrix.use_c2a }}
+          cmake . -DEXT_LIB_DIR=../s2e-core/ExtLibraries -DFLIGHT_SW_DIR=../c2a-core -DC2A_NAME=Examples/minimum_user_for_s2e -D${{ matrix.use_c2a }} -DUSE_SCI_COM_WINGS=OFF
           cmake --build .
