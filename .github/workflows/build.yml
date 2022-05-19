@@ -140,16 +140,6 @@ jobs:
         working-directory: c2a-core
         run: ./setup.sh
 
-      - name: patch C2A
-        if: contains(matrix.use_c2a, 'ON')
-        working-directory: c2a-core
-        run: |
-          git fetch origin
-          git config --global user.email "github-actions[bot]"
-          git config --global user.name "41898282+github-actions[bot]@users.noreply.github.com"
-          git merge origin/hotfix/wrong-cmake-default-option
-          git merge origin/hotfix/fix-libc2a-build
-
       - name: install deps
         run: |
           sudo apt-get update
