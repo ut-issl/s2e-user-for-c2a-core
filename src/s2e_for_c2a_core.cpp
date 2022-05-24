@@ -1,7 +1,5 @@
 // Simulator includes
-#include "Initialize.h"
-#include "Logger.h"
-#include "SimulationCase.h"
+#include "Interface/LogOutput/Logger.h"
 
 // Add custom include files
 #include "./Simulation/Case/c2a_core_sample_case.h"
@@ -21,7 +19,7 @@ void print_path(std::string path)
 }
 
 // Main function
-int main(int argc, char* argv[])
+int main()
 {
   // Set initialize file
   std::string ini_file = "../../data/ini/c2a_core_sim_base.ini";
