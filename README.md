@@ -1,7 +1,7 @@
 # S2E User for C2A Core
 
 ## Overview
-- This repository is an example of S2E User to execute a sample of [minimum C2A](https://github.com/ut-issl/c2a-core/tree/develop/Examples/minimum_user_for_s2e) and to support an operation with WINGS (TBA).
+- This repository is an example of S2E User to execute a sample of [minimum C2A](https://github.com/ut-issl/c2a-core/tree/develop/Examples/minimum_user) and to support an operation with WINGS (TBA).
 - The CI system for c2a-core are using this repository.
 - This is also an example of SILS/HILS test for C2A development.
 
@@ -17,7 +17,7 @@
 
 
 ## 概要
-- C2A Core に含まれる [最小限のC2A サンプル](https://github.com/ut-issl/c2a-core/tree/develop/Examples/minimum_user_for_s2e) を SILS で動かし，かつ， WINGS (TBA) によって運用（コマンド操作とテレメトリ受信）できるようにするための最低限の S2E User．
+- C2A Core に含まれる [最小限のC2A サンプル](https://github.com/ut-issl/c2a-core/tree/develop/Examples/minimum_user) を SILS で動かし，かつ， WINGS (TBA) によって運用（コマンド操作とテレメトリ受信）できるようにするための最低限の S2E User．
 - C2A Core の CI にもこの S2E を使っている．
 - C2A 開発を始める際につかう SILS/HILS の雛形にもなりうる．
 
