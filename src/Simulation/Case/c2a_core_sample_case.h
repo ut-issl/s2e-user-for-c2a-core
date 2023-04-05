@@ -1,11 +1,10 @@
 #pragma once
 
-#include "SimulationCase.h"
 #include "../Spacecraft/c2a_core_sample_sat.h"
+#include "SimulationCase.h"
 
-class C2aCoreSampleCase: public SimulationCase
-{
-public:
+class C2aCoreSampleCase : public SimulationCase {
+ public:
   C2aCoreSampleCase(std::string ini_fname);
   virtual ~C2aCoreSampleCase();
 
@@ -15,6 +14,6 @@ public:
   virtual std::string GetLogHeader() const;
   virtual std::string GetLogValue() const;
 
-private:
+ private:
   C2aCoreSampleSat* spacecraft_;
 };

@@ -5,13 +5,12 @@
 #include "./Simulation/Case/c2a_core_sample_case.h"
 
 // degub print of initialize file path
-void print_path(std::string path)
-{
+void print_path(std::string path) {
 #ifdef WIN32
   std::cout << path << std::endl;
 #else
   const char *rpath = realpath(path.c_str(), NULL);
-  if(rpath) {
+  if (rpath) {
     std::cout << rpath << std::endl;
     free((void *)rpath);
   }
@@ -19,8 +18,7 @@ void print_path(std::string path)
 }
 
 // Main function
-int main()
-{
+int main() {
   // Set initialize file
   std::string ini_file = "../../data/ini/c2a_core_sim_base.ini";
 
