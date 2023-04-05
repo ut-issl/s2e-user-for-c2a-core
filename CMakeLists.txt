@@ -28,7 +28,7 @@ if(NOT DEFINED FLIGHT_SW_DIR)
   set(FLIGHT_SW_DIR ../FlightSW)
 endif()
 if(NOT DEFINED C2A_NAME)
-  set(C2A_NAME "c2a-core/Examples/minimum_user")
+  set(C2A_NAME "c2a_sample")
 endif()
 
 ## options to use C2A
