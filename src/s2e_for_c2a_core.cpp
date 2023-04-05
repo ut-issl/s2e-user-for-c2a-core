@@ -1,10 +1,10 @@
 // Simulator includes
-#include "Interface/LogOutput/Logger.h"
+#include "library/logger/logger.hpp"
 
 // Add custom include files
 #include "./Simulation/Case/c2a_core_sample_case.h"
 
-// degub print of initialize file path
+// debug print of initialize file path
 void print_path(std::string path) {
 #ifdef WIN32
   std::cout << path << std::endl;
