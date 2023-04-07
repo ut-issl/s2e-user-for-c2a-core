@@ -2,7 +2,7 @@ cmake_policy(SET CMP0048 NEW)
 project(S2E_FOR_C2A_CORE
   LANGUAGES CXX
   DESCRIPTION "S2E_FOR_C2A_CORE"
-  VERSION 2.0
+  VERSION 2.0.0
 )
 
 cmake_minimum_required(VERSION 3.13)
