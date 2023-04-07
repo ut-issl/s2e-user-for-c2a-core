@@ -28,7 +28,7 @@ if(NOT DEFINED FLIGHT_SW_DIR)
   set(FLIGHT_SW_DIR ../FlightSW)
 endif()
 if(NOT DEFINED C2A_NAME)
-  set(C2A_NAME "c2a_sample")
+  set(C2A_NAME "c2a-core/Examples/minimum_user")
 endif()
 
 ## options to use C2A
@@ -39,7 +39,6 @@ if(USE_C2A)
   add_definitions(-DSILS_FW)
   #include_directories of C2A
   include_directories(${C2A_DIR}/src)
-  include_directories(${S2E_CORE_DIR}/src/Interface/SpacecraftInOut)
 
   #add subdirectory
   set(BUILD_C2A_AS_CXX ON)
