@@ -1,3 +1,8 @@
+/**
+ * @file c2a_core_sample_components.cpp
+ * @brief User side components management installed on a spacecraft for C2A-CORE
+ */
+
 #include "c2a_core_sample_components.hpp"
 
 #include <library/initialize/initialize_file_access.hpp>

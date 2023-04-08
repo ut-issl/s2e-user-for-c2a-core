@@ -1,3 +1,8 @@
+/**
+ * @file c2a_core_sample_case.cpp
+ * @brief User defined simulation case for C2A-CORE
+ */
+
 #include "c2a_core_sample_case.hpp"
 
 C2aCoreSampleCase::C2aCoreSampleCase(std::string ini_fname) : SimulationCase(ini_fname) {}
