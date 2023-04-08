@@ -1,3 +1,8 @@
+/**
+ * @file s2e_for_c2a_core.cpp
+ * @brief The main file of S2E-FOR-C2A-CORE
+ */
+
 // Simulator includes
 #include "library/logger/logger.hpp"
 
