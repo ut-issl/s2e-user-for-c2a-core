@@ -20,7 +20,7 @@ class C2aCoreSampleCase : public SimulationCase {
    * @fn C2aCoreSampleCase
    * @brief Constructor
    */
-  C2aCoreSampleCase(std::string ini_fname);
+  C2aCoreSampleCase(const std::string initialise_base_file);
   /**
    * @fn ~C2aCoreSampleCase
    * @brief Destructor

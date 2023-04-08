@@ -5,7 +5,7 @@
 
 #include "c2a_core_sample_case.hpp"
 
-C2aCoreSampleCase::C2aCoreSampleCase(std::string ini_fname) : SimulationCase(ini_fname) {}
+C2aCoreSampleCase::C2aCoreSampleCase(const std::string initialise_base_file) : SimulationCase(initialise_base_file) {}
 
 C2aCoreSampleCase::~C2aCoreSampleCase() { delete spacecraft_; }
 
