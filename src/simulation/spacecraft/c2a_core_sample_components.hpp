@@ -25,8 +25,8 @@ class C2aCoreSampleComponents : public InstalledComponents {
    * @fn C2aCoreSampleComponents
    * @brief Constructor
    */
-  C2aCoreSampleComponents(const Dynamics* dynamics, const Structure* structure, const LocalEnvironment* local_env, const GlobalEnvironment* glo_env,
-                          const SimulationConfiguration* config, ClockGenerator* clock_gen);
+  C2aCoreSampleComponents(const Dynamics* dynamics, Structure* structure, const LocalEnvironment* local_environment,
+                          const GlobalEnvironment* global_environment, const SimulationConfiguration* configuration, ClockGenerator* clock_generator);
 
   /**
    * @fn ~C2aCoreSampleComponents
@@ -56,11 +56,11 @@ class C2aCoreSampleComponents : public InstalledComponents {
   ObcWithC2a* obc_;  //!< Onboard Computer with C2A
 
   // References
-  const Dynamics* dynamics_;               //!< Dynamics information of the spacecraft
-  const Structure* structure_;             //!< Structure information of the spacecraft
-  const LocalEnvironment* local_env_;      //!< Local environment information around the spacecraft
-  const GlobalEnvironment* glo_env_;       //!< Global environment information around the spacecraft
-  const SimulationConfiguration* config_;  //!< Simulation settings
+  const Dynamics* dynamics_;                      //!< Dynamics information of the spacecraft
+  const Structure* structure_;                    //!< Structure information of the spacecraft
+  const LocalEnvironment* local_environment_;     //!< Local environment information around the spacecraft
+  const GlobalEnvironment* global_environment_;   //!< Global environment information around the spacecraft
+  const SimulationConfiguration* configuration_;  //!< Simulation settings
 };
 
 #endif  // S2E_SIMULATION_SPACECRAFT_C2A_CORE_SAMPLE_COMPONENTS_HPP_
