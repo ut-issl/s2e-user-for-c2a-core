@@ -2,7 +2,7 @@
 
 #include <./simulation/case/simulation_case.hpp>
 
-#include "../Spacecraft/c2a_core_sample_sat.h"
+#include "../spacecraft/c2a_core_sample_sat.h"
 
 class C2aCoreSampleCase : public SimulationCase {
  public:
