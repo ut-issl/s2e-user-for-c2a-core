@@ -17,7 +17,7 @@ C2aCoreSampleComponents::C2aCoreSampleComponents(const Dynamics* dynamics, const
 #ifdef USE_C2A
   obc_ = new ObcWithC2a(clock_gen, 100);
 
-  obc_->ConnectComPort(PORT_CH_RS422_MOBC_EXT, 1024, 1024);  // UART通信用にとりあえず繋いでおく
+  obc_->ConnectComPort(PORT_CH_RS422_MOBC_EXT, 1024, 1024);  // Connect UART Port
 #endif
 }
 
