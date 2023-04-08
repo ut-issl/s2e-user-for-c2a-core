@@ -74,7 +74,7 @@ add_subdirectory(${S2E_CORE_DIR}/src/simulation s2e_core/simulation)
 set(SOURCE_FILES
   src/s2e_for_c2a_core.cpp
   src/simulation/case/c2a_core_sample_case.cpp
-  src/simulation/spacecraft/c2a_core_sample_sat.cpp
+  src/simulation/spacecraft/c2a_core_sample_satellite.cpp
   src/simulation/spacecraft/c2a_core_sample_components.cpp
 )
 # Create executable file
