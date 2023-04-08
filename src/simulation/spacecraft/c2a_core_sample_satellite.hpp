@@ -2,7 +2,7 @@
 
 #include <simulation/spacecraft/spacecraft.hpp>
 
-#include "c2a_core_sample_components.h"
+#include "c2a_core_sample_components.hpp"
 
 class C2aCoreSampleSat : public Spacecraft {
  public:

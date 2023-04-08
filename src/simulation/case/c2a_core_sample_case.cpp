@@ -1,4 +1,4 @@
-#include "c2a_core_sample_case.h"
+#include "c2a_core_sample_case.hpp"
 
 C2aCoreSampleCase::C2aCoreSampleCase(std::string ini_fname) : SimulationCase(ini_fname) {}
 

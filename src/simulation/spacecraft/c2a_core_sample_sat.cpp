@@ -1,6 +1,5 @@
-#include "c2a_core_sample_sat.h"
-
-#include "c2a_core_sample_components.h"
+#include "c2a_core_sample_components.hpp"
+#include "c2a_core_sample_satellite.hpp"
 
 C2aCoreSampleSat::C2aCoreSampleSat(SimulationConfiguration* sim_config, const GlobalEnvironment* glo_env, const int sat_id)
     : Spacecraft(sim_config, glo_env, sat_id) {

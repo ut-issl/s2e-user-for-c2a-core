@@ -7,7 +7,7 @@
 #include "library/logger/logger.hpp"
 
 // Add custom include files
-#include "./simulation/case/c2a_core_sample_case.h"
+#include "./simulation/case/c2a_core_sample_case.hpp"
 
 // debug print of initialize file path
 void print_path(std::string path) {

@@ -1,4 +1,4 @@
-#include "c2a_core_sample_components.h"
+#include "c2a_core_sample_components.hpp"
 
 #include <library/initialize/initialize_file_access.hpp>
 
