@@ -10,16 +10,36 @@
 
 #include "../spacecraft/c2a_core_sample_satellite.hpp"
 
+/**
+ * @class C2aCoreSampleCase
+ * @brief User defined simulation case for C2A-CORE
+ */
 class C2aCoreSampleCase : public SimulationCase {
  public:
+  /**
+   * @fn C2aCoreSampleCase
+   * @brief Constructor
+   */
   C2aCoreSampleCase(std::string ini_fname);
+  /**
+   * @fn ~C2aCoreSampleCase
+   * @brief Destructor
+   */
   virtual ~C2aCoreSampleCase();
 
+  /**
+   * @fn GetLogHeader
+   * @brief Override function of GetLogHeader
+   */
   virtual std::string GetLogHeader() const;
+  /**
+   * @fn GetLogValue
+   * @brief Override function of GetLogValue
+   */
   virtual std::string GetLogValue() const;
 
  private:
-  C2aCoreSampleSat* spacecraft_;
+  C2aCoreSampleSat* spacecraft_;  //!< Spacecraft Instance
 
   /**
    * @fn InitializeTargetObjects
