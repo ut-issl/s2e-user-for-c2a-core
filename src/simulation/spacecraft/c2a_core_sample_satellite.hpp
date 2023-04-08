@@ -20,7 +20,8 @@ class C2aCoreSampleSat : public Spacecraft {
    * @fn C2aCoreSampleSat
    * @brief Constructor
    */
-  C2aCoreSampleSat(SimulationConfiguration* sim_config, const GlobalEnvironment* glo_env, const int sat_id);
+  C2aCoreSampleSat(const SimulationConfiguration* simulation_configuration, const GlobalEnvironment* global_environment,
+                   const unsigned int spacecraft_id);
 
  private:
 };
