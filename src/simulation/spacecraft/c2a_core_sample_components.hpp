@@ -1,4 +1,10 @@
-#pragma once
+/**
+ * @file c2a_core_sample_components.hpp
+ * @brief User side components management installed on a spacecraft for C2A-CORE
+ */
+
+#ifndef S2E_SIMULATION_SPACECRAFT_C2A_CORE_SAMPLE_COMPONENTS_HPP_
+#define S2E_SIMULATION_SPACECRAFT_C2A_CORE_SAMPLE_COMPONENTS_HPP_
 
 #include <dynamics/dynamics.hpp>
 #include <environment/global/global_environment.hpp>
@@ -29,3 +35,5 @@ class C2aCoreSampleComponents : public InstalledComponents {
   const GlobalEnvironment* glo_env_;
   const SimulationConfiguration* config_;
 };
+
+#endif  // S2E_SIMULATION_SPACECRAFT_C2A_CORE_SAMPLE_COMPONENTS_HPP_

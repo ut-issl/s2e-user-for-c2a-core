@@ -1,4 +1,10 @@
-#pragma once
+/**
+ * @file c2a_core_sample_case.hpp
+ * @brief User defined simulation case for C2A-CORE
+ */
+
+#ifndef S2E_SIMULATION_CASE_C2A_CORE_SAMPLE_CASE_HPP_
+#define S2E_SIMULATION_CASE_C2A_CORE_SAMPLE_CASE_HPP_
 
 #include <./simulation/case/simulation_case.hpp>
 
@@ -27,3 +33,5 @@ class C2aCoreSampleCase : public SimulationCase {
    */
   void UpdateTargetObjects();
 };
+
+#endif  // S2E_SIMULATION_CASE_C2A_CORE_SAMPLE_CASE_HPP_

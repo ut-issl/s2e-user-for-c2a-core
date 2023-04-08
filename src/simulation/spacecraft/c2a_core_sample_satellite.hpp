@@ -1,4 +1,10 @@
-#pragma once
+/**
+ * @file c2a_core_sample_satellite.hpp
+ * @brief User side spacecraft class for C2A-CORE
+ */
+
+#ifndef S2E_SIMULATION_SPACECRAFT_C2A_CORE_SAMPLE_SATELLITE_HPP_
+#define S2E_SIMULATION_SPACECRAFT_C2A_CORE_SAMPLE_SATELLITE_HPP_
 
 #include <simulation/spacecraft/spacecraft.hpp>
 
@@ -10,3 +16,5 @@ class C2aCoreSampleSat : public Spacecraft {
 
  private:
 };
+
+#endif  // S2E_SIMULATION_SPACECRAFT_C2A_CORE_SAMPLE_SATELLITE_HPP_
