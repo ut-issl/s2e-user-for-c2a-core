@@ -11,17 +11,17 @@
 #include "c2a_core_sample_components.hpp"
 
 /**
- * @class C2aCoreSampleSat
+ * @class C2aCoreSampleSatellite
  * @brief User side spacecraft class for C2A-CORE
  */
-class C2aCoreSampleSat : public Spacecraft {
+class C2aCoreSampleSatellite : public Spacecraft {
  public:
   /**
    * @fn C2aCoreSampleSat
    * @brief Constructor
    */
-  C2aCoreSampleSat(const SimulationConfiguration* simulation_configuration, const GlobalEnvironment* global_environment,
-                   const unsigned int spacecraft_id);
+  C2aCoreSampleSatellite(const SimulationConfiguration* simulation_configuration, const GlobalEnvironment* global_environment,
+                         const unsigned int spacecraft_id);
 
  private:
 };

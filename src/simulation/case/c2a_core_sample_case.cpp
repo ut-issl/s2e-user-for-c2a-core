@@ -13,7 +13,7 @@ void C2aCoreSampleCase::InitializeTargetObjects() {
   // Instantiate the target of the simulation
   // `spacecraft_id` corresponds to the index of `spacecraft_file` in simulation_base.ini
   const int spacecraft_id = 0;
-  spacecraft_ = new C2aCoreSampleSat(&simulation_configuration_, global_environment_, spacecraft_id);
+  spacecraft_ = new C2aCoreSampleSatellite(&simulation_configuration_, global_environment_, spacecraft_id);
 
   // Register the log output
   spacecraft_->LogSetup(*(simulation_configuration_.main_logger_));

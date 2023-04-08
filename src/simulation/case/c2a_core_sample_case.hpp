@@ -39,7 +39,7 @@ class C2aCoreSampleCase : public SimulationCase {
   virtual std::string GetLogValue() const;
 
  private:
-  C2aCoreSampleSat* spacecraft_;  //!< Spacecraft Instance
+  C2aCoreSampleSatellite* spacecraft_;  //!< Spacecraft Instance
 
   /**
    * @fn InitializeTargetObjects
