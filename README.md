@@ -8,7 +8,7 @@
 
 ## Notes
 - Details are described [S2E Document: How to integrate C2A](https://github.com/ut-issl/s2e-documents/blob/develop/Tutorials/HowToIntegrateC2A.md).
-- s2e-core [v5.0.0](https://github.com/ut-issl/s2e-core/releases/tag/v5.0.0) is used.
+- s2e-core [v6.0.0](https://github.com/ut-issl/s2e-core/releases/tag/v6.0.0) is used.
 
 
 ## Related repositories
@@ -24,7 +24,7 @@
 
 ## C2A in S2E について
 - 詳細は [S2E Document: How to integrate C2A](https://github.com/ut-issl/s2e-documents/blob/develop/Tutorials/HowToIntegrateC2A.md) を参照のこと．
-- ここでは，S2E Core のバージョンは [v5.0.0](https://github.com/ut-issl/s2e-core/releases/tag/v5.0.0) を用いる．
+- ここでは，S2E Core のバージョンは [v6.0.0](https://github.com/ut-issl/s2e-core/releases/tag/v6.0.0) を用いる．
 
 
 ## 関連リポジトリ
