@@ -1,8 +1,13 @@
+/**
+ * @file s2e_for_c2a_core.cpp
+ * @brief The main file of S2E-FOR-C2A-CORE
+ */
+
 // Simulator includes
 #include "library/logger/logger.hpp"
 
 // Add custom include files
-#include "./Simulation/Case/c2a_core_sample_case.h"
+#include "./simulation/case/c2a_core_sample_case.hpp"
 
 // debug print of initialize file path
 void print_path(std::string path) {
@@ -20,7 +25,7 @@ void print_path(std::string path) {
 // Main function
 int main() {
   // Set initialize file
-  std::string ini_file = "../../data/ini/c2a_core_sim_base.ini";
+  std::string ini_file = "../../data/initialize_files/c2a_core_sim_base.ini";
 
   std::cout << "Starting simulation..." << std::endl;
   std::cout << "\tIni file: ";
