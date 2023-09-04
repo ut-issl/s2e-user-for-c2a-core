@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: checkout S2E core
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: s2e-core
           repository: ut-issl/s2e-core
@@ -30,13 +30,13 @@ jobs:
           fetch-depth: 1
 
       - name: checkout S2E user
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: s2e-user
 
       - name: checkout C2A core
         if: contains(matrix.use_c2a, 'ON')
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: c2a-core
           repository: ut-issl/c2a-core
@@ -114,7 +114,7 @@ jobs:
 
     steps:
       - name: checkout S2E core
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: s2e-core
           repository: ut-issl/s2e-core
@@ -122,13 +122,13 @@ jobs:
           fetch-depth: 1
 
       - name: checkout S2E user
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: s2e-user
 
       - name: checkout C2A core
         if: contains(matrix.use_c2a, 'ON')
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: c2a-core
           repository: ut-issl/c2a-core
