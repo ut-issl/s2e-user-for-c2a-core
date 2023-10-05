@@ -41,7 +41,7 @@ if(USE_C2A)
   include_directories(${C2A_DIR}/src)
 
   #add subdirectory
-  set(BUILD_C2A_AS_CXX ON)
+  set(C2A_BUILD_AS_CXX ON)
   add_subdirectory(${C2A_DIR} C2A)
 endif()
 
